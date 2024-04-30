@@ -25,6 +25,7 @@ C8:F0:9E:CE:29:7A (unknown)
 ```
 
 3. Create a new connection with the Deepdeck:
+
 ```sudo hcitool lecc C8:F0:9E:CE:29:7A```
 
 if successfull then will show you a handler connection number
@@ -35,7 +36,9 @@ Connection handle 65
 ```
 
 4. Add the connection handler to the LE accept list:
+
 ```sudo hcitool lealadd C8:F0:9E:CE:29:7A```
+
 ```sudo hcitool lealadd 65```
 
 Now you can start the application and use the deepdeck like remote controller
