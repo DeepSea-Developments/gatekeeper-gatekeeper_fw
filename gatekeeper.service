@@ -1,0 +1,21 @@
+#this file must me copied in /etc/systemd/system as root with "sudo cp gatekeeper.service /etc/systemd/system/gatekeeper.service"
+#Once the file has been copied, it must inform to systemd that a new service has been added "sudo systemctl daemon-reload"
+#start on boot daemon "sudo systemctl enable gatekeeper.service"
+#start the daemon "sudo systemctl start gatekeeper.service"
+#to stop the daemon "sudo systemctl stop gatekeeper.service"
+
+[Unit]
+Description=Gatekeeper service
+After=network.target
+
+[Service]
+ExecStart=python3 -u appMain.py
+WorkingDirectory=/home/pi/gatekeeper
+StandardOutput=inherit
+StandardError=inherit
+Restart=on-failure
+RestartSec=10s
+User=pi
+
+[Install]
+WantedBy=multi-user.target
