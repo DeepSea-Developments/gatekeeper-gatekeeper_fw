@@ -3,6 +3,7 @@ from multiprocessing import Queue
 from camera import camera
 from control import control
 from interface import interface
+from remoteControl import remoteController
 if __name__ == '__main__':  #main Thread for intercommunication and sync
     #queues creation
     commandQueue = Queue()
@@ -15,3 +16,5 @@ if __name__ == '__main__':  #main Thread for intercommunication and sync
     outputs.start()
     user = interface(commandQueue)
     user.start()
+    controller = remoteController(commandQueue)
+    controller.start()
