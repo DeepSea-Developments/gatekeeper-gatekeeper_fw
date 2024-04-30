@@ -75,5 +75,22 @@ class camera(Thread):
       checksum = struct.unpack_from("H", read_bytes, offset)
       if (num_faces >= 1):
         print(num_faces, faces)
+        face_center = [ box_left + (box_right - box_left), box_top+(box_bottom - box_top) ]
+        
+        if( face_center[0] < 134): #the face is upper, so move the camera upward
+          if( 120 < face_center[0]):
+            print("horizontal aligned")
+          else:
+            print("move camera upward")
+        else:
+          print("move camera downward")
+          
+        if( face_center[1] < 134):
+          if( 120 < face_center[1] ):
+            print("vertically aligned")
+          else:
+            print("move camera to the right")
+        else:
+          print("move camera to the left")
                       
       time.sleep(PERSON_SENSOR_DELAY)
