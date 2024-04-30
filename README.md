@@ -26,8 +26,10 @@ C8:F0:9E:CE:29:7A (unknown)
 
 3. Create a new connection with the Deepdeck:
 ```sudo hcitool lecc C8:F0:9E:CE:29:7A```
+
 if successfull then will show you a handler connection number
->>```
+
+```
 pi@raspberrypi:~ $ sudo hcitool lecc C8:F0:9E:CE:29:7A
 Connection handle 65
 ```
